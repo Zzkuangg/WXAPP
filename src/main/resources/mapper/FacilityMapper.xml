@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boyier.mapper.FacilityMapper">
+    <select id="queryFacility" parameterType="String" resultType="com.boyier.pojo.Facility">
+        select *  from facility  where f_room = #{f_room}
+    </select>
+    <select id="queryOneFacility" parameterType="String" resultType="com.boyier.pojo.Facility">
+        select *  from facility  where f_id = #{f_id}
+    </select>
+    <insert id="addFacility" parameterType="com.boyier.pojo.Facility">
+        insert into facility  values (#{f_id}, #{f_name}, #{f_room}, #{f_img}, #{f_band})
+    </insert>
+    <delete id="delFacility" parameterType="String">
+        delete from facility  where f_id = #{f_id}
+    </delete>
+
+    <select id="queryAllFacility" resultType="com.boyier.pojo.Facility">
+        select * from  facility
+    </select>
+</mapper>

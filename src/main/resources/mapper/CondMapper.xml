@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boyier.mapper.CondMapper">
+    <select id="queryCond" parameterType="String" resultType="com.boyier.pojo.Cond">
+        SELECT * FROM cond where c_facility=#{c_facility} ORDER BY c_id DESC LIMIT 0,1
+    </select>
+    <insert id="addCond" parameterType="com.boyier.pojo.Cond">
+        insert into cond  (`c_facility`,`c_state`,`c_power`,`c_categories`)values (#{c_facility}, #{c_state}, #{c_power}, #{c_categories})
+    </insert>
+</mapper>
