@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boyier.mapper.UserMapper">
+    <select id="queryUser" parameterType="String" resultType="com.boyier.pojo.Users">
+        select * from users where u_name = #{u_name}
+    </select>
+    <insert id="addUser" parameterType="com.boyier.pojo.Users">
+        insert into users (`u_name`,`u_pwd`,`u_prior`)values (#{u_name}, #{u_pwd},#{u_prior})
+    </insert>
+    <delete id="delUser" parameterType="String">
+        delete from users  where u_name = #{u_name}
+    </delete>
+    <select id="queryAll" resultType="com.boyier.pojo.Users">
+        select * from users
+    </select>
+
+</mapper>

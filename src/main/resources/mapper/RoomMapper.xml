@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--为Room绑定mapper-->
+<mapper namespace="com.boyier.mapper.RoomMapper">
+    <select id="queryAll" resultType="com.boyier.pojo.Room">
+        select *  from room
+    </select>
+
+    <select id="queryRoomById" parameterType="String" resultType="com.boyier.pojo.Room">
+        select *  from room where r_usr=#{u_id}
+    </select>
+
+    <insert id="addRoom" parameterType="com.boyier.pojo.Room">
+        insert into room (`r_id`,`r_name`,`r_img`,`r_usr`)values (#{r_id}, #{r_name}, #{r_img},#{r_usr})
+    </insert>
+
+    <delete id="delRoom" parameterType="com.boyier.pojo.Room">
+        delete from room  where identify = #{identify}
+    </delete>
+</mapper>
